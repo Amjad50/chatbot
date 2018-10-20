@@ -75,6 +75,7 @@ io.on("connection", function(socket) {
             "bot reply",
             "Do you "+list[j].title+" ?"
           );
+          socket.emit('item check', j);
           i++;
           console.log(list[j]);
           j++;

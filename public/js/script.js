@@ -9,7 +9,6 @@ recognition.addEventListener('result', (e) => {
 
     console.log('confidence: ' + e.results[0][0].confidence);
     console.log(text);
-    outgoing_message(text);
     sendToBot(text);
 })
 

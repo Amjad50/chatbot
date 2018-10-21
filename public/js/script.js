@@ -39,6 +39,7 @@ socket.on('bot text', function (replyText) {
 function sendToBot(text){
     outgoing_message(text);
     socket.emit('chat message', text);
+    outgoing_message(text);
 }
 
 socket.on('item check', function(item_index){

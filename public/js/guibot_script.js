@@ -38,13 +38,17 @@ function send_click(event){
     if(event.type === 'keydown' && event.keyCode != 13/*Enter*/)
         return;
     let message = message_input.value;
-    push_message(message, __MSGTYPE.OUTGOING);
+    outgoing_message(message);
     message_input.value = '';
     
 }
 
+function outgoing_message(msg){
+    push_message(msg, __MSGTYPE.OUTGOING);
+}
+
 function push_message(msg, type) {
-    sendToBot(msg);
+    // sendToBot(msg);
     let date = new Date();
     let c_date = `${date.getHours()}:${date.getMinutes()} | ${date.getMonth()}-${date.getDay()}`;
     console.log(c_date)

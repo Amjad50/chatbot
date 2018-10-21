@@ -21,10 +21,6 @@ app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
 
-
-
-
-
 var list = [
   { title: "Have at least 5 gallons of water per person", place: "" },
   { title: "Put together a 3 to 5 day supply of food that doesn’t go bad (like canned food)", place: "" },
@@ -43,10 +39,10 @@ io.on("connection", function(socket) {
     console.log("mussage: " + text);
 
     if (i == 0) {
-      if (text === "no") {
+      if (text.toLocaleLowerCase().includes("no")) {
         socket.emit(
           "bot reply",
-          "ِAre you insane? These are some pictures and videos for what happened in a hurricane called Macko in Mexico, when you come back click the button"
+          "Are you insane? These are some pictures for what happened in a hurricane called Hurricane Lilly in USA"
         );
 
         socket.emit(
@@ -58,7 +54,12 @@ io.on("connection", function(socket) {
           "bot image",
           "https://dmt55mxnkgbz2.cloudfront.net/900x0_s3-42296-hurricane-michael-trump-announces-florida-and-georgia-visit-as-states-reel-from-devastating-storm-damage-1.jpg"
         );
-
+        
+        socket.emit(
+          "bot image",
+          "https://blogs.ei.columbia.edu//wp-content/uploads/2017/11/hurricane-63005_1280-637x425.jpg"
+        );
+        
         socket.emit("bot reply",
         "RUN NOW!"
       )
@@ -68,7 +69,7 @@ io.on("connection", function(socket) {
       )
 
 
-      } else if (text === "yes") {
+      } else if (text.toLocaleLowerCase().includes("yes")) {
         socket.emit(
           "bot reply",
           "Let's check your checklist together then, are you ready?"
@@ -76,7 +77,7 @@ io.on("connection", function(socket) {
         i++;
       }
     } else {
-      if (text === "no") {
+      if (text.toLocaleLowerCase().includes("no")) {
         console.log("hi");
         socket.emit(
           "bot reply",
@@ -87,7 +88,7 @@ io.on("connection", function(socket) {
             "bot url",
             "https://www.google.com/maps/place/Guardian/@3.1248417,101.6534577,15z/data=!4m8!1m2!2m1!1spharmacy!3m4!1s0x31cc49d0a17dd3ff:0xe3b6bfb09d93ca83!8m2!3d3.1198755!4d101.6743677"
           );
-      } else if (text === "yes") {
+      } else if (text.toLocaleLowerCase().includes("yes")) {
         if (j == list.length) {
           socket.emit(
             "bot reply",

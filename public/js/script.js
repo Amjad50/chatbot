@@ -1,6 +1,7 @@
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 const socket = io();
+recognition.lang = 'en-US';
 
 window.setInterval(function () { recognition.start() }, 7000)
 recognition.addEventListener('result', (e) => {
@@ -9,7 +10,8 @@ recognition.addEventListener('result', (e) => {
 
     console.log('confidence: ' + e.results[0][0].confidence);
     console.log(text);
-    sendToBot(text);
+    outgoing_message(text)
+    // sendToBot(text);
 })
 
 recognition.addEventListener('speechend', () => {

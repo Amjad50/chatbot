@@ -13,14 +13,17 @@ io.on("connection", () => {
   console.log("connected");
 });
 
+var i = 0;
+var j = 0;
 app.get("/", (req, res) => {
+  i = 0;
+  j = 0;
   res.sendFile("index.html");
 });
 
 
 
-var i = 0;
-var j = 0;
+
 
 var list = [
   { title: "Have at least 5 gallons of water per person", place: "" },
@@ -45,6 +48,31 @@ io.on("connection", function(socket) {
           "bot reply",
           "ِAre you insane? These are some pictures and videos for what happened in a hurricane called Macko in Mexico, when you come back click the button"
         );
+
+        socket.emit(
+          "bot image",
+          "ِhttp://www.ifrc.org/PageFiles/61908/p8391_large.jpg"
+        );
+
+        socket.emit(
+          "bot image",
+          "ِhttp://www.ifrc.org/PageFiles/61908/p8391_large.jpg"
+        );
+
+        socket.emit(
+          "bot image",
+          "ِhttps://dmt55mxnkgbz2.cloudfront.net/900x0_s3-42296-hurricane-michael-trump-announces-florida-and-georgia-visit-as-states-reel-from-devastating-storm-damage-1.jpg"
+        );
+
+        socket.emit("bot reply",
+        "RUN NOW!"
+      )
+
+      socket.emit("bot reply",
+        "are you planning to escape?"
+      )
+
+
       } else if (text === "yes") {
         socket.emit(
           "bot reply",
@@ -69,6 +97,11 @@ io.on("connection", function(socket) {
           socket.emit(
             "bot reply",
             "We have finished all your checklist now you need to go to the shelter, May Allah bless you!"
+          );
+
+          socket.emit(
+            "bot text",
+            "https://www.google.com/maps/dir//DoubleTree+by+Hilton+Hotel+Kuala+Lumpur,+The+Intermark,+348,+Jalan+Tun+Razak,+Kampung+Datuk+Keramat,+50400+Kuala+Lumpur,+Wilayah+Persekutuan+Kuala+Lumpur/@3.1562079,101.712534,15z/data=!4m18!1m8!3m7!1s0x31cc37c567fa4f09:0xe402d2f79974988b!2sDoubleTree+by+Hilton+Hotel+Kuala+Lumpur!5m1!1s2018-10-28!8m2!3d3.1619092!4d101.7197701!4m8!1m0!1m5!1m1!1s0x31cc37c567fa4f09:0xe402d2f79974988b!2m2!1d101.7197708!2d3.161909!3e3"
           );
         } else {
           socket.emit(

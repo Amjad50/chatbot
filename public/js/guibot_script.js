@@ -66,7 +66,7 @@ function send_bot_message(msg){
 function send_bot_img(url){
     let date = new Date();
     let c_date = `${date.getHours()}:${date.getMinutes()}`;
-    messages_holder.innerHTML += incoming_message_template.format(`<img src="${url}" height="42" width="42">`, c_date);
+    messages_holder.innerHTML += incoming_message_template.format(`<img src="${url}">`, c_date);
     messages_holder.scrollTop = messages_holder.scrollHeight;
 }
 

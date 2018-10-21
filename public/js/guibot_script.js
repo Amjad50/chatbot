@@ -48,13 +48,12 @@ function outgoing_message(msg){
 }
 
 function push_message(msg, type) {
-    // sendToBot(msg);
     let date = new Date();
-    let c_date = `${date.getHours()}:${date.getMinutes()} | ${date.getMonth()}-${date.getDay()}`;
-    console.log(c_date)
+    let c_date = `${date.getHours()}:${date.getMinutes()}`;
     if(type === __MSGTYPE.INCOMING){
         messages_holder.innerHTML += incoming_message_template.format(msg, c_date);
     }else{
+        sendToBot(msg);
         messages_holder.innerHTML += outgoing_message_template.format(msg, c_date);
     }
     messages_holder.scrollTop = messages_holder.scrollHeight;
@@ -62,6 +61,13 @@ function push_message(msg, type) {
 
 function send_bot_message(msg){
     push_message(msg, __MSGTYPE.INCOMING);
+}
+
+function send_bot_img(url){
+    let date = new Date();
+    let c_date = `${date.getHours()}:${date.getMinutes()}`;
+    messages_holder.innerHTML += incoming_message_template.format(`<img src="${url}" height="42" width="42">`, c_date);
+    messages_holder.scrollTop = messages_holder.scrollHeight;
 }
 
 function check_item(index){

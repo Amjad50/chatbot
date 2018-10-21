@@ -37,7 +37,6 @@ socket.on('bot text', function (replyText) {
 });
 
 function sendToBot(text){
-    outgoing_message(text);
     socket.emit('chat message', text);
 }
 

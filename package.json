@@ -12,6 +12,7 @@
   "dependencies": {
     "apiai": "^4.0.3",
     "express": "^4.16.4",
+    "simple-web-notification": "^1.0.31",
     "socket.io": "^2.1.1"
   }
 }

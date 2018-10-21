@@ -51,17 +51,12 @@ io.on("connection", function(socket) {
 
         socket.emit(
           "bot image",
-          "ِhttp://www.ifrc.org/PageFiles/61908/p8391_large.jpg"
+          "http://www.ifrc.org/PageFiles/61908/p8391_large.jpg"
         );
 
         socket.emit(
           "bot image",
-          "ِhttp://www.ifrc.org/PageFiles/61908/p8391_large.jpg"
-        );
-
-        socket.emit(
-          "bot image",
-          "ِhttps://dmt55mxnkgbz2.cloudfront.net/900x0_s3-42296-hurricane-michael-trump-announces-florida-and-georgia-visit-as-states-reel-from-devastating-storm-damage-1.jpg"
+          "https://dmt55mxnkgbz2.cloudfront.net/900x0_s3-42296-hurricane-michael-trump-announces-florida-and-georgia-visit-as-states-reel-from-devastating-storm-damage-1.jpg"
         );
 
         socket.emit("bot reply",

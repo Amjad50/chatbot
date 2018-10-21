@@ -61,7 +61,7 @@ io.on("connection", function(socket) {
         );
 
         socket.emit(
-            "bot text",
+            "bot url",
             "https://www.google.com/maps/place/Guardian/@3.1248417,101.6534577,15z/data=!4m8!1m2!2m1!1spharmacy!3m4!1s0x31cc49d0a17dd3ff:0xe3b6bfb09d93ca83!8m2!3d3.1198755!4d101.6743677"
           );
       } else if (text === "yes") {

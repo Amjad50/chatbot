@@ -9,6 +9,7 @@ recognition.addEventListener('result', (e) => {
 
     console.log('confidence: ' + e.results[0][0].confidence);
     console.log(text);
+    outgoing_message(text);
     sendToBot(text);
 })
 
@@ -42,4 +43,9 @@ function sendToBot(text){
 
 socket.on('item check', function(item_index){
     check_item(item_index);
+});
+
+socket.on('bot url', function(url){
+    send_bot_message(`<a href="${url}">Pharamacy Google Map!</a>
+    `)
 });

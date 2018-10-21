@@ -36,6 +36,10 @@ socket.on('bot text', function (replyText) {
     send_bot_message(replyText);
 });
 
+socket.on('bot image', function (replyText) {
+    send_bot_img(replyText);
+});
+
 function sendToBot(text){
     socket.emit('chat message', text);
 }
